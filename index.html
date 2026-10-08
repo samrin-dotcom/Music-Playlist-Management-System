@@ -1,0 +1,584 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Music Playlist Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Main Container -->
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span class="logo-icon">🎵</span>
+                <h2>MusicFlow</h2>
+            </div>
+
+            <nav class="menu">
+
+                <a href="#" class="menu-item active">
+                    <span>🏠</span>
+                    <span>Home</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span>🎵</span>
+                    <span>My Playlist</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span>❤️</span>
+                    <span>Favorites</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span>🕘</span>
+                    <span>Recently Played</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-info">
+                    <span>🎧</span>
+                    <p>Your Music<br>Experience</p>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="top-bar">
+
+                <div>
+                    <h1>Music Playlist Manager</h1>
+                    <p>Manage your favorite songs in one place</p>
+                </div>
+
+                <div class="search-container">
+
+                    <span class="search-icon">🔍</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search songs or artists..."
+                    >
+
+                </div>
+
+            </header>
+
+
+            <!-- Dashboard Cards -->
+            <section class="dashboard-cards">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">🎵</div>
+
+                    <div>
+                        <p>Total Songs</p>
+                        <h2 id="totalSongs">4</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">❤️</div>
+
+                    <div>
+                        <p>Favorites</p>
+                        <h2 id="totalFavorites">2</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">🎤</div>
+
+                    <div>
+                        <p>Artists</p>
+                        <h2 id="totalArtists">3</h2>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Now Playing Section -->
+            <section class="now-playing-section">
+
+                <div class="section-title">
+                    <h2>Now Playing</h2>
+                    <span class="playing-status">● Playing</span>
+                </div>
+
+
+                <div class="now-playing-card">
+
+                    <div class="album-cover">
+
+                        <div class="album-note">
+                            🎵
+                        </div>
+
+                    </div>
+
+
+                    <div class="song-details">
+
+                        <p class="now-label">CURRENT SONG</p>
+
+                        <h2 id="currentSong">
+                            Perfect
+                        </h2>
+
+                        <p id="currentArtist">
+                            Ed Sheeran
+                        </p>
+
+                        <div class="progress-container">
+
+                            <div class="progress-bar">
+
+                                <div
+                                    class="progress"
+                                    id="progress">
+                                </div>
+
+                            </div>
+
+                            <div class="time-info">
+
+                                <span id="currentTime">
+                                    1:24
+                                </span>
+
+                                <span>
+                                    4:23
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Music Controls -->
+                        <div class="music-controls">
+
+                            <button
+                                id="previousBtn"
+                                class="control-btn">
+                                ⏮
+                            </button>
+
+                            <button
+                                id="playBtn"
+                                class="play-btn">
+                                ▶
+                            </button>
+
+                            <button
+                                id="nextBtn"
+                                class="control-btn">
+                                ⏭
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="volume-control">
+
+                        <span>🔊</span>
+
+                        <input
+                            type="range"
+                            min="0"
+                            max="100"
+                            value="70"
+                            id="volumeSlider"
+                        >
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Playlist Section -->
+            <section class="playlist-section">
+
+                <div class="playlist-header">
+
+                    <div>
+                        <h2>My Playlist</h2>
+                        <p>Your favorite collection</p>
+                    </div>
+
+                    <button
+                        class="add-song-btn"
+                        id="addSongBtn">
+                        + Add Song
+                    </button>
+
+                </div>
+
+
+                <!-- Playlist Table -->
+                <div class="playlist-container">
+
+                    <div class="playlist-heading">
+
+                        <span>#</span>
+
+                        <span>Song</span>
+
+                        <span>Artist</span>
+
+                        <span>Duration</span>
+
+                        <span>Action</span>
+
+                    </div>
+
+
+                    <!-- Song 1 -->
+                    <div
+                        class="song-row"
+                        data-song="Perfect"
+                        data-artist="Ed Sheeran">
+
+                        <span class="song-number">
+                            01
+                        </span>
+
+                        <div class="song-info">
+
+                            <div class="small-album">
+                                🎵
+                            </div>
+
+                            <div>
+                                <h4>Perfect</h4>
+                                <p>Ed Sheeran</p>
+                            </div>
+
+                        </div>
+
+                        <span class="artist-name">
+                            Ed Sheeran
+                        </span>
+
+                        <span class="duration">
+                            4:23
+                        </span>
+
+                        <div class="song-actions">
+
+                            <button
+                                class="favorite-btn active">
+                                ♥
+                            </button>
+
+                            <button
+                                class="play-song-btn">
+                                ▶
+                            </button>
+
+                            <button
+                                class="delete-btn">
+                                🗑
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Song 2 -->
+                    <div
+                        class="song-row"
+                        data-song="Believer"
+                        data-artist="Imagine Dragons">
+
+                        <span class="song-number">
+                            02
+                        </span>
+
+                        <div class="song-info">
+
+                            <div class="small-album">
+                                🎵
+                            </div>
+
+                            <div>
+                                <h4>Believer</h4>
+                                <p>Imagine Dragons</p>
+                            </div>
+
+                        </div>
+
+                        <span class="artist-name">
+                            Imagine Dragons
+                        </span>
+
+                        <span class="duration">
+                            3:24
+                        </span>
+
+                        <div class="song-actions">
+
+                            <button
+                                class="favorite-btn">
+                                ♡
+                            </button>
+
+                            <button
+                                class="play-song-btn">
+                                ▶
+                            </button>
+
+                            <button
+                                class="delete-btn">
+                                🗑
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Song 3 -->
+                    <div
+                        class="song-row"
+                        data-song="Faded"
+                        data-artist="Alan Walker">
+
+                        <span class="song-number">
+                            03
+                        </span>
+
+                        <div class="song-info">
+
+                            <div class="small-album">
+                                🎵
+                            </div>
+
+                            <div>
+                                <h4>Faded</h4>
+                                <p>Alan Walker</p>
+                            </div>
+
+                        </div>
+
+                        <span class="artist-name">
+                            Alan Walker
+                        </span>
+
+                        <span class="duration">
+                            3:32
+                        </span>
+
+                        <div class="song-actions">
+
+                            <button
+                                class="favorite-btn active">
+                                ♥
+                            </button>
+
+                            <button
+                                class="play-song-btn">
+                                ▶
+                            </button>
+
+                            <button
+                                class="delete-btn">
+                                🗑
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Song 4 -->
+                    <div
+                        class="song-row"
+                        data-song="Shape of You"
+                        data-artist="Ed Sheeran">
+
+                        <span class="song-number">
+                            04
+                        </span>
+
+                        <div class="song-info">
+
+                            <div class="small-album">
+                                🎵
+                            </div>
+
+                            <div>
+                                <h4>Shape of You</h4>
+                                <p>Ed Sheeran</p>
+                            </div>
+
+                        </div>
+
+                        <span class="artist-name">
+                            Ed Sheeran
+                        </span>
+
+                        <span class="duration">
+                            3:53
+                        </span>
+
+                        <div class="song-actions">
+
+                            <button
+                                class="favorite-btn">
+                                ♡
+                            </button>
+
+                            <button
+                                class="play-song-btn">
+                                ▶
+                            </button>
+
+                            <button
+                                class="delete-btn">
+                                🗑
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Add Song Form -->
+            <section
+                class="add-song-section"
+                id="addSongSection">
+
+                <div class="add-song-header">
+
+                    <div>
+                        <h2>Add New Song</h2>
+                        <p>Add a new song to your playlist</p>
+                    </div>
+
+                </div>
+
+
+                <form id="songForm">
+
+                    <div class="form-group">
+
+                        <label for="songName">
+                            Song Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="songName"
+                            placeholder="Enter song name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="artistName">
+                            Artist Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="artistName"
+                            placeholder="Enter artist name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="songDuration">
+                            Duration
+                        </label>
+
+                        <input
+                            type="text"
+                            id="songDuration"
+                            placeholder="Example: 3:45"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-buttons">
+
+                        <button
+                            type="submit"
+                            class="save-btn">
+                            Add Song
+                        </button>
+
+                        <button
+                            type="button"
+                            class="cancel-btn"
+                            id="cancelBtn">
+                            Cancel
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```
